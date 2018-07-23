@@ -1,0 +1,16 @@
+body{
+  background-color: #131313;
+  color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: 1s ease all;
+}
+
+a:hover {
+  color: #131313;
+  background-color: white;
+}

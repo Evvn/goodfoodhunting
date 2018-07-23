@@ -1,0 +1,30 @@
+CREATE DATABASE goodfoodhunting;
+
+CREATE TABLE dishes (
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(100),
+  image_url VARCHAR(400),
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE comments (
+  id SERIAL4 PRIMARY KEY,
+  content TEXT NOT NULL,
+  dish_id INTEGER NOT NULL,
+  FOREIGN KEY (dish_id) REFERENCES dishes (id) ON DELETE CASCADE
+);
+
+CREATE TABLE users (
+  id SERIAL4 PRIMARY KEY,
+  email VARCHAR(300),
+  password_digest VARCHAR(400)
+);
+
+CREATE TABLE likes (
+  id SERIAL4 PRIMARY KEY,
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+  dish_id INTEGER NOT NULL,
+  FOREIGN KEY (dish_id) REFERENCES dishes (id) ON DELETE CASCADE
+);
